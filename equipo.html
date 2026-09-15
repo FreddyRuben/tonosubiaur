@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Equipo TS | Toño Subiaur | José Antonio Rodríguez Subiaur</title>
+    <meta
+      name="description"
+      content="Equipo de trabajo de Toño Subiaur, José Antonio Rodríguez Subiaur en Macuspana, Tabasco."
+    />
+    <link rel="icon" type="image/png" href="img/logo-tono-subiaur.png" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Source+Sans+3:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="nav">
+        <a class="brand" href="index.html">
+          <span class="brand-mark">TS</span>
+          <span class="brand-text">
+            <img src="img/logo-tono-subiaur.png" alt="Toño Subiaur" class="brand-logo" />
+          </span>
+        </a>
+        <button class="nav-toggle" type="button" aria-label="Abrir menú" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <ul class="nav-links">
+          <li><a href="index.html#quien-soy">Quién soy</a></li>
+          <li><a href="index.html#trayectoria">Trayectoria</a></li>
+          <li><a href="index.html#territorio">Territorio</a></li>
+          <li><a href="index.html#compromisos">Compromisos</a></li>
+          <li><a href="galeria.html">Galería</a></li>
+          <li><a href="equipo.html">Equipo TS</a></li>
+          <li><a class="btn-nav" href="index.html#contacto">Contacto</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section class="section">
+        <div class="container fade-in">
+          <p class="eyebrow">Equipo TS</p>
+          <h1>Construyendo juntos</h1>
+          <p class="section-lead">
+            El equipo de trabajo que impulsa el cambio en Macuspana.
+          </p>
+        </div>
+      </section>
+
+      <section class="section alt">
+        <div class="container fade-in">
+          <div class="construction-message">
+            <div class="construction-icon">
+              <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="8" x2="12" y2="12"></line>
+                <line x1="12" y1="16" x2="12.01" y2="16"></line>
+              </svg>
+            </div>
+            <h2>Módulo en construcción</h2>
+            <p>
+              Estamos trabajando para traerte información sobre nuestro equipo.
+              Pronto podrás conocer a las personas que trabajan por el bienestar de Macuspana.
+            </p>
+            <a class="btn primary" href="index.html">Volver al inicio</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <p>
+          José Antonio Rodríguez Subiaur · Toño Subiaur · Macuspana, Tabasco
+        </p>
+        <p class="fine">Sitio informativo de presentación política.</p>
+        <p class="copyright">
+          © 2026 Toño Subiaur. Todos los derechos reservados.
+        </p>
+        <p class="social-link">
+          <a href="https://www.facebook.com/profile.php?id=61574526660898" target="_blank" rel="noopener noreferrer">
+            <svg class="facebook-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+            </svg>
+            Síguenos en Facebook
+          </a>
+        </p>
+      </div>
+    </footer>
+
+    <script>
+      const toggle = document.querySelector(".nav-toggle");
+      const links = document.querySelector(".nav-links");
+
+      toggle.addEventListener("click", () => {
+        const open = links.classList.toggle("open");
+        toggle.setAttribute("aria-expanded", String(open));
+      });
+
+      links.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", () => {
+          links.classList.remove("open");
+          toggle.setAttribute("aria-expanded", "false");
+        });
+      });
+
+      // Fade-in animation on scroll
+      const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, observerOptions);
+
+      document.querySelectorAll('.fade-in').forEach(el => {
+        observer.observe(el);
+      });
+    </script>
+  </body>
+</html>
